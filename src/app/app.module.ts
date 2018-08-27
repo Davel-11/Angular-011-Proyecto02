@@ -16,6 +16,12 @@ import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.componen
 import { RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { environment } from '../environments/environment';
+
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -33,11 +39,15 @@ import { LoginComponent } from './login/login.component';
   ],
   imports: [
     BrowserModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule,
+    NgbModule.forRoot(),
   
     RouterModule.forRoot([
       { path: '', component: HomeComponent },
-      { path: 'products', component: ProductsComponent },
-      { path: 'products', component: ProductsComponent },
+      { path: 'products', component: ProductsComponent },      
+      { path: 'my/orders', component: MyOrdersComponent },      
       { path: 'shopping-cart', component: ShoppingCartComponent },
       { path: 'check-out', component: CheckOutComponent },
       { path: 'order-success', component: OrderSuccessComponent },
