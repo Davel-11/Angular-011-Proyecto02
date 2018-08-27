@@ -1,3 +1,5 @@
+#this is only the log in part
+
 # Oshop
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.8.
