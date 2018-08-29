@@ -6,6 +6,7 @@
     <a routerLink="/admin/products/new" class="btn btn-primary">Ingresar Nuevo</a>
 </p>
 
+
 <p>
   <input
    #query
@@ -13,25 +14,41 @@
    type="text" class="form-control" placeholder="Buscar..." >
 </p>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>Titulo</th>
-      <th>Precio</th>
-      <th></th>
-    </tr>
-  </thead>
+<data-table
+ [items] ="items"
+ [itemCount]= "itemCount"
+ (reload)="recargar($event)"
+>
+    <data-table-column
+      [property]="'title'"
+      [header]="'Title'"
+      [sortable]="true"
+      [resizable]="true"
+    >
+    </data-table-column>
 
-  <tbody>
-      <tr *ngFor="let p of filteredProducts">
-          <th>{{ p.title }}</th>
-          <th>{{ p.price }}</th>
-          <th>
-            <a [routerLink]="['/admin/products/', p.$key]">Edit</a>
-          </th>
-        </tr>
-  </tbody>
-</table>
+    <data-table-column
+      [property]="'price'"
+      [header]="'Price'"
+      [sortable]="true"
+      [resizable]="true"
+    >
+      <ng-template #dataTableCell let-item="item">
+        {{ item.price }}
+      </ng-template>
+    </data-table-column>
+
+    <data-table-column
+      [property]="'$key'"    
+    >  
+      <ng-template #dataTableCell let-item="item">
+        <a [routerLink]="['/admin/products/', item.$key]">Edit</a>
+      </ng-template>
+    </data-table-column>
+</data-table>
+
+
+
 
 
 

@@ -35,9 +35,10 @@ import { ProductService } from './product.service';
 
 //validationes para formas
 import   { CustomFormsModule } from 'ng2-validation';
+import { DataTableModule } from 'angular5-data-table';
 
 @NgModule({
-  declarations: [
+  declarations: [    
     AppComponent,
     BsNavbarComponent,
     HomeComponent,
@@ -52,6 +53,7 @@ import   { CustomFormsModule } from 'ng2-validation';
     ProductFormComponent
   ],
   imports: [
+    DataTableModule.forRoot(),
     FormsModule,
     CustomFormsModule,
     BrowserModule,
