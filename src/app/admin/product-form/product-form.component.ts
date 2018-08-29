@@ -22,7 +22,7 @@ export class ProductFormComponent implements OnInit {
     private productService: ProductService,
     private router: Router
   ) {
-    this.categories$ = catergoryService.getCategories();
+    this.categories$ = catergoryService.getAll();
 
     this.id= this.route.snapshot.paramMap.get('id');  
     if(this.id){ 

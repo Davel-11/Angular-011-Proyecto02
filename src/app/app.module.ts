@@ -36,6 +36,7 @@ import { ProductService } from './product.service';
 //validationes para formas
 import   { CustomFormsModule } from 'ng2-validation';
 import { DataTableModule } from 'angular5-data-table';
+import { ProductFilterComponent } from './products/product-filter/product-filter.component';
 
 @NgModule({
   declarations: [    
@@ -50,7 +51,8 @@ import { DataTableModule } from 'angular5-data-table';
     AdminProductsComponent,
     AdminOrdersComponent,
     LoginComponent,
-    ProductFormComponent
+    ProductFormComponent,
+    ProductFilterComponent
   ],
   imports: [
     DataTableModule.forRoot(),
@@ -63,7 +65,7 @@ import { DataTableModule } from 'angular5-data-table';
     NgbModule.forRoot(),
   
     RouterModule.forRoot([
-      { path: '', component: HomeComponent },
+      { path: '', component: ProductsComponent },
       { path: 'products', component: ProductsComponent },      
       { path: 'shopping-cart', component: ShoppingCartComponent },
       { path: 'login', component: LoginComponent },
