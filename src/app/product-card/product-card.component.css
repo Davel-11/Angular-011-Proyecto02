@@ -6,3 +6,7 @@
 .card {
     margin-bottom: 30px;
 }
+
+.card-footer {
+    cursor: pointer;
+}
